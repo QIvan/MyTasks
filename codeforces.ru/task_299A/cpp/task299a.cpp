@@ -9,17 +9,20 @@ using namespace std;
 int main() 
 {
 	   int n = 10;
-	   int k = 2;
-	   string road(n, '.');
-	   cin >> n >> k;
-	   cin >> road;
-	   /*for(int i=1; i<3; ++i)
-	       road[i] = '#';*/
-	   if (*road.rbegin());
-	   string barrier(k, '#');
-	   if(road.find(barrier) == string::npos)
-	       cout << "YES";
-	   else
-	       cout << "NO";
-	   
+	   cin >> n;
+	   vector<int> data(n);
+	   for (int i=0; i<n; ++i)
+	       cin >> data[i];
+	
+	   vector<int>::iterator min = min_element(data.begin(), data.end());
+	   bool res = true;
+	   for (int i=0; i<n; ++i)
+	   {
+	       if (data[i] % *min != 0)
+	       {
+	           res = false;
+	       	    break;
+	       }
+	   }
+	   cout << (res ? *min : -1);
 }
